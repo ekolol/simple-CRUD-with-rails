@@ -1,54 +1,48 @@
+# frozen_string_literal: true
+
+# ArticlessController
 class ArticlesController < ApplicationController
-
-
+  # create new articles
   def new
-      @article = Article.new
-    end
+    @article = Article.new
+  end
 
-    http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
-    
-    def index
-      @articles = Article.all
-    end
+  # for look all articles index
+  def index
+    @articles = Article.all
+  end
 
-    def show
-      @article = Article.find(params[:id])
-    end
-   
-    def create
-      render plain: params[:articles].inspect
-    end
+  # for show articles by id
+  def show
+    @article = Article.find(params[:id])
+  end
 
-    def edit
-      @article = Article.find(params[:id])
-    end
-    
-    def create
-      @article = Article.new(article_params)
-      if @article.save
-        redirect_to @article
-      else
-        render 'new'
-          end
-    
-        end
+  # edit article by id
+  def edit
+    @article = Article.find(params[:id])
+  end
 
-    def create
-     @article = Article.new(params.require(:article).permit(:title, :text))
-     
-     @article.save
+  # create new articles article_params
+  def create
+    @article = Article.new(article_params)
+    if @article.save
       redirect_to @article
+    else
+      render 'new'
     end
-    
-def update
-  @article = Article.find(params[:id])
-  if @article.update(article_params)
-    redirect_to @article
-  else
-    render 'edit'
-  end
   end
 
+  # update articles
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
+    end
+  end
+
+  # destroy articles
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
@@ -56,8 +50,10 @@ def update
     redirect_to articles_path
   end
 
-private
-def article_params
-  params.require(:article).permit(:title, :text)
+  # private
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :text)
   end
 end
