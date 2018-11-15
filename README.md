@@ -18,12 +18,5 @@ Basic CRUD with Authenticate.
     rails server | Running rails server in localhost
     running url at http://localhost:3000
 
-# Run Local
-  
-  
-    bundle exec rspec
-    Open file index.html in file:///<your-path-to-file>/blog-workshop/coverage/index.html, open browser for show code coverage.
-
-
 # Author
 Eko Satria | mr.eko.satria@gmail.com
