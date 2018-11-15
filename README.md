@@ -8,7 +8,7 @@ Basic CRUD with Authenticate.
     Postgresql
     Bundler
     Rails
-
+    Rubocop
 # Run Local
   
     git clone <url repo> | Clone this repo
