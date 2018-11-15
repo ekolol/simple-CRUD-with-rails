@@ -9,6 +9,7 @@ Basic CRUD with Authenticate.
     Bundler
     Rails
     Rubocop
+    
 # Run Local
   
     git clone <url repo> | Clone this repo
